@@ -13,6 +13,7 @@
             <table class="table table-striped ">
                 <thead>
                     <tr class="table table-light ">
+                        <th scope="col">S.N.</th>
                         <th scope="col">Generation</th>
                         <th scope="col">RAM</th>
                         <th scope="col">Brands</th>
@@ -25,6 +26,7 @@
                     {% for gen in gen_list %}
                         <tbody>
                             <tr>
+                                <td scope="row">{{forloop.counter}}</td>
                                 <td>{{gen.generation}}</td>
                                 <td>{{gen.RAM}}GB</td>
                                 <td>{{gen.brands}}</td>
