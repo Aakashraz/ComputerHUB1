@@ -1,0 +1,46 @@
+{% extends "computer/index.html" %}
+ 
+{% block title %} 
+    Computer Generation List 
+{% endblock %}
+
+{% block content %}
+    <div class="d-flex flex-column">
+        <div>
+            <a class="btn btn-primary float-end m-3" href='{% url "chub:gen-create-form" %}' role="button">Add Generation</a>
+        </div>
+        <div class="table-responsive-sm ">
+            <table class="table table-striped ">
+                <thead>
+                    <tr class="table table-light ">
+                        <th scope="col">Generation</th>
+                        <th scope="col">RAM</th>
+                        <th scope="col">Brands</th>
+                        <th scope="col">Minimum Price</th>
+                        <th scope="col">Maximum Price</th>
+                        <th scope="col">Action</th>
+                        
+                    </tr>
+                </thead>
+                    {% for gen in gen_list %}
+                        <tbody>
+                            <tr>
+                                <td>{{gen.generation}}</td>
+                                <td>{{gen.RAM}}GB</td>
+                                <td>{{gen.brands}}</td>
+                                <td>Min. Price:{{gen.price_min}}</td>
+                                <td>Max. Price:{{gen.price_max}}</td>
+                                <td><a class="btn btn-secondary btn-sm" href='{% url "chub:gen-update" gen.id %}' role="button">UPDATE</a>
+                                    <a class="btn btn-danger btn-sm" href='{% url "chub:gen-delete" gen.id %}' role="button">DELETE</a></td>
+                            <tr>
+                        </tbody>
+                    {% endfor %}
+                    </tr>
+                </thead>
+            </table>
+        </div>
+    </div>
+
+{% endblock  %}
+
+

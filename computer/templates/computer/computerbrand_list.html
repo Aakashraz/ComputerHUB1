@@ -1,0 +1,66 @@
+{% extends "computer/index.html" %}
+ 
+{% block title %} Computer Brand List {% endblock %}
+
+{% block content %}
+    <div class= "d-flex flex-column">
+        <div>
+            <a class="btn btn-primary float-end m-3" href='{% url "chub:brand-create-form" %}' role="button">Add Brand</a>
+        </div>
+        <div class="table-responsive-sm px-1">
+            <table class="table table-striped table-sm" >
+                <thead>
+                    <tr class="table table-light ">
+                        <th scope="col">Computer Brand</th>
+                        <th scope="col">Logo</th>
+                        <th scope="col">Action</th>
+                        
+                    </tr>
+                </thead>
+
+                {% for brand in brand_list %}
+                <tbody >
+                    <tr >
+                        <td>{{brand.brand_name}}</td>
+                        <td><img src="{{brand.logo.url}}" class= img-fluid width= "120" ></td>
+                        <td><a class="btn btn-secondary btn-sm" href='{% url "chub:brand-update" brand.id %}' role="button">UPDATE</a>
+                            <a class="btn btn-danger btn-sm" href='{% url "chub:brand-delete" brand.id %}' role="button">DELETE</a></td>
+                    </tr>
+                </tbody>
+                {% endfor %}
+            </table>
+        </div>
+    </div>
+{% endblock %}
+
+
+<div class="table-responsive-sm px-1">
+    <table class="table table-striped table-sm">
+        <thead>
+            <tr class="table table-light ">
+                <th scope="col">Generation</th>
+                <th scope="col">RAM</th>
+                <th scope="col">Brands</th>
+                <th scope="col">Minimum Price</th>
+                <th scope="col">Maximum Price</th>
+                <th scope="col">Action</th>
+                
+            </tr>
+        </thead>
+            {% for gen in gen_list %}
+                <tbody>
+                    <tr>
+                        <td>{{gen.generation}}</td>
+                        <td>{{gen.RAM}}GB</td>
+                        <td>{{gen.brands}}</td>
+                        <td>Min. Price:{{gen.price_min}}</td>
+                        <td>Max. Price:{{gen.price_max}}</td>
+                        <td><a class="btn btn-secondary btn-sm" href='{% url "chub:gen-update" gen.id %}' role="button">UPDATE</a>
+                            <a class="btn btn-danger btn-sm" href='{% url "chub:gen-delete" gen.id %}' role="button">DELETE</a></td>
+                    <tr>
+                </tbody>
+            {% endfor %}
+            </tr>
+        </thead>
+    </table>
+</div>

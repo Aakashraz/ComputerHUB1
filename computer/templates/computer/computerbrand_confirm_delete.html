@@ -1,0 +1,12 @@
+{%extends "computer/index.html"%}
+{%block title%} Deleting Computer Brand{% endblock%}
+
+{% block content %}
+</h3>Are you sure about deleting the computer brand data?</h3>
+<p>Computer Brand: {{computerbrand}}</p>
+
+<form method="POST">
+    {% csrf_token %}
+    <input type= "submit" value= "Confirm Delete">
+</form>
+{% endblock %}
