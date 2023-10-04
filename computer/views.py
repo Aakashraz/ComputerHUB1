@@ -52,17 +52,17 @@ class CompGenUpdateView(UpdateView):
 class ComputerUpdateView(UpdateView):
     model= Computer
     fields= "__all__"
-    success_url= reverse_lazy('chub:list')
+    success_url= reverse_lazy('chub:index')
 
 
 
 class CompBrandDeleteView(DeleteView):
     model= ComputerBrand
-    success_url= reverse_lazy('chub:list')
+    success_url= reverse_lazy('chub:brand-list')
 
 class ComputerDeleteView(DeleteView):
     model= Computer
-    success_url= reverse_lazy('chub:list')
+    success_url= reverse_lazy('chub:index')
 
 class CompGenDeleteView(DeleteView):
     model= ComputerGeneration

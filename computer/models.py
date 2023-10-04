@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 class ComputerBrand (models.Model):
     brand_name= models.CharField(max_length=30)
@@ -6,7 +7,12 @@ class ComputerBrand (models.Model):
 
     def __str__(self):
         return self.brand_name
-
+    
+    # You can use this get_absolute_url(self) function, instead of using success_url in CreateView and UpdateView IN views.py
+    
+    # def get_absolute_url(self):
+    #     return reverse("chub:index", kwargs={"pk": self.pk})
+    
 
 class ComputerGeneration (models.Model):
     generation= models.CharField(max_length=20, unique=True)
