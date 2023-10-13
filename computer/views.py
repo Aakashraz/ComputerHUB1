@@ -3,6 +3,8 @@ from django.views.generic import CreateView, ListView, UpdateView, TemplateView,
 from django.urls import reverse_lazy
 from .models import Computer, ComputerGeneration, ComputerBrand
 
+# from django.contrib.auth.mixins import LoginRequiredMixin
+
 
 # class IndexView(TemplateView):
 #     template_name= "computer/index.html"
@@ -11,18 +13,20 @@ from .models import Computer, ComputerGeneration, ComputerBrand
 class CompBrandCreateView(CreateView):
     model=ComputerBrand
     fields="__all__"
-    success_url= reverse_lazy("chub:index")
+    success_url= reverse_lazy("chub:brand-list")
+
+    
 
 class CompGenerationCreateView(CreateView):
     model=ComputerGeneration
     fields= "__all__"
-    success_url= reverse_lazy('chub:index')
+    success_url= reverse_lazy('chub:genlist')
 
 class ComputerCreateView(CreateView):
     model= Computer
     fields= "__all__"
-    success_url= reverse_lazy('chub:index')
-
+    success_url= reverse_lazy('chub:index')   
+    
 
 
 class CompBrandListView(ListView):
@@ -46,8 +50,8 @@ class CompBrandUpdateView(UpdateView):
 
 class CompGenUpdateView(UpdateView):
     model=ComputerGeneration
-    fields=['generation', 'RAM', 'brands']
-    success_url= reverse_lazy('chub:gen-list')
+    fields="__all__"
+    success_url= reverse_lazy('chub:genlist')
 
 class ComputerUpdateView(UpdateView):
     model= Computer
@@ -66,4 +70,4 @@ class ComputerDeleteView(DeleteView):
 
 class CompGenDeleteView(DeleteView):
     model= ComputerGeneration
-    success_url= reverse_lazy('chub:gen-list')
+    success_url= reverse_lazy('chub:genlist')

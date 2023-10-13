@@ -3,9 +3,36 @@
 Add Computer Brand Form
 {% endblock %}
 
+
+{% comment %} {% block content %}
+    <form method='POST' enctype= 'multipart/form-data'>
+        {% csrf_token %}
+        {{form.as_p}}
+        <input type= 'submit' value= 'Submit'>
+    </form>
+{% endblock %}  {% endcomment %}
+
+
 {% block content %}
-<form method='POST' enctype= 'multipart/form-data'>
-    {% csrf_token %}
-    {{form.as_p}}
-    <input type= 'submit' value= 'Submit'>
-{% endblock  %}
+    <div class = "row justify-content-center ">
+        <div class="col-lg-auto">
+            <form method="POST" enctype = "multipart/form-data">
+                {% csrf_token %}
+
+                <div class="mb-3">
+                    <label for="{{form.brand_name.id_for_label}}" class="form-label">Brand Name:</label>
+                    <input type="text" class="form-control-auto" name="{{form.brand_name.name}}" id="{{form.brand_name.id_for_label}}" placeholder="Eg: Dell" value= "{{form.brand_name.value}}">
+                </div>
+                <div class=" mb-3">
+                    <label for="{{form.logo.id_for_label}}" class="form-label">Upload Logo: </label>
+                    <input class="form-control-auto" name="{{form.logo.name}}" type="file" id="{{form.logo.id_for_label}}" value="{{form.logo.value}}">
+                </div>
+                <p>{{form.initial}}</p>
+
+                <div>
+                    <button class= "btn btn-secondary" type= "submit">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+{% endblock%}

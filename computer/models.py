@@ -7,11 +7,13 @@ class ComputerBrand (models.Model):
 
     def __str__(self):
         return self.brand_name
+        # to check self --> id
+        # return f'ID:{self.id}, {self.brand_name}'
     
     # You can use this get_absolute_url(self) function, instead of using success_url in CreateView and UpdateView IN views.py
     
     # def get_absolute_url(self):
-    #     return reverse("chub:index", kwargs={"pk": self.pk})
+    #     return reverse("chub:brand-list", kwargs={"pk": self.pk})
     
 
 class ComputerGeneration (models.Model):
@@ -23,6 +25,8 @@ class ComputerGeneration (models.Model):
 
     def __str__(self):
         return self.generation
+        # to check self--> id
+        # return f'ID:{self.id}, {self.generation}'
 
 
 class Computer (models.Model):
@@ -33,4 +37,4 @@ class Computer (models.Model):
     total_price= models.FloatField()
 
     def __str__(self):
-        return self.computer_code
+        return f'selfID:{self.id}--> computer code:{self.computer_code}'
