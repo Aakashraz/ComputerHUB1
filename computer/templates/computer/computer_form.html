@@ -30,7 +30,8 @@
 
                 <div class="mb-3">
                     <label for="{{ form.computer_code.id_for_label }}" class="form-label">Computer Code:</label>
-                    <input type="text" class="form-control" name="{{ form.computer_code.name }}" id="{{ form.computer_code.id_for_label }}" value="{{ form.computer_code.value}}">
+                    <input type="text" class="form-control" name="{{ form.computer_code.name }}" id="{{ form.computer_code.id_for_label }}" value="{% if form.computer_code.value %} {{ form.computer_code.value}} {% else %} {% endif %}">
+
                 </div>
 
                 <div class=" mb-3">

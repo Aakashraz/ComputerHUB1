@@ -19,10 +19,12 @@ Add Computer Generation Form
         <div class="col-lg-4">
             <form method= "POST" enctype= "multipart/form-data" >
                 {% csrf_token %}
+                {{ form.generation.value}}
+                <p>{{form.price_min.value}} (To check the return value!!!)</p>
 
                 <div class="mb-3">
                     <label for="{{ form.generation.id_for_label }}" class="form-label">Generation:</label>
-                    <input type="text" class="form-control" name="{{ form.generation.name }}" id="{{ form.generation.id_for_label }}" value="{{ form.generation.value}}">
+                    <input type="text" class="form-control" name="{{ form.generation.name }}" id="{{ form.generation.id_for_label }}" value="{% if form.generation.value %} {{ form.generation.value }} {% else %} {% endif %} ">
                 </div>
 
                 <div class=" mb-3">
@@ -39,6 +41,8 @@ Add Computer Generation Form
                     <label for="{{ form.RAM.id_for_label }}" class="form-label">RAM: </label>
                     <input class="form-control" name="{{ form.RAM.name }}" type="number" id="{{ form.RAM.id_for_label }}" value= "{{ form.RAM.value }}">
                 </div>
+
+                
                 <p>{{form.initial}}</p>
 
                 <div class="input-group mb-3">

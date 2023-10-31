@@ -48,9 +48,9 @@ class ComputerBrandUpdateView(View):
             form.save()
             return redirect('chub:brand-list')
         
-        return render(request,'computer/computerbrand_form.html', {
-            'form': form,
-        })
+        # return render(request,'computer/computerbrand_form.html', {
+        #     'form': form,
+        # })
     
 
 class ComputerBrandDeleteView(View):
@@ -92,9 +92,9 @@ class ComputerGenerationView(View):
             form.save()
             return redirect('chub:genlist')
         
-        return render(request, 'computer/computergeneration_form.html', {
-            'form': form,
-        })
+        # return render(request, 'computer/computergeneration_form.html', {
+        #     'form': form,
+        # })
 
 
 class ComputerGenerationUpdateView(View):
@@ -114,9 +114,9 @@ class ComputerGenerationUpdateView(View):
             form.save()
             return redirect('chub:genlist')
         
-        return render (request,'computer/computergeneration_form.html', {
-            'form': form,
-        })
+        # return render (request,'computer/computergeneration_form.html', {
+        #     'form': form,
+        # })
     
 
 class ComputerGenerationDeleteView(View):

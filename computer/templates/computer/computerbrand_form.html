@@ -19,9 +19,10 @@ Add Computer Brand Form
             <form method="POST" enctype = "multipart/form-data">
                 {% csrf_token %}
 
+
                 <div class="mb-3">
                     <label for="{{form.brand_name.id_for_label}}" class="form-label">Brand Name:</label>
-                    <input type="text" class="form-control-auto" name="{{form.brand_name.name}}" id="{{form.brand_name.id_for_label}}" placeholder="Eg: Dell" value= "{{form.brand_name.value}}">
+                    <input type="text" class="form-control-auto" name="{{form.brand_name.name}}" id="{{form.brand_name.id_for_label}}" placeholder="Eg: Dell" value= "{% if form.brand_name.value %} {{form.brand_name.value}} {% else %} {% endif %} ">
                 </div>
                 <div class=" mb-3">
                     <label for="{{form.logo.id_for_label}}" class="form-label">Upload Logo: </label>
